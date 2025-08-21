@@ -1,0 +1,8 @@
+*.exe
+*.out
+*.o
+*.class
+.vscode/
+input.txt
+
+.cph/*
