@@ -13,18 +13,19 @@ using namespace std;
 #define pii pair<int, int>
 #define vpii vector<pii>
 
-void solve() {
-    int n = 0;
-    cin >> n;
-    // Your code here
-}
-
 int main() {
     int n = 0;
     cin >> n;
 
-    for (int i = 0; i < n; i++)
-        solve();
+    vi h(n+1);
+    int maxH = 0;
+
+    for (int i = 0; i < n; i++) {
+        cin >> h[i+1];
+        maxH = max(maxH, h[i+1]);
+    }
+
+    cout << maxH;
 
     return 0;
 }
