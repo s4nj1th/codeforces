@@ -1,30 +1,43 @@
 #include <bits/stdc++.h>
-
 using namespace std;
 
-#define vi vector<int>
-#define vvi vector<vi>
+#define FAST_IO ios::sync_with_stdio(false); cin.tie(nullptr);
+
 #define ll long long
+#define ull unsigned long long
+#define vi vector<int>
 #define vll vector<ll>
-#define vvl vector<vector<ll>>
-#define vb vector<bool>
-#define htii unordered_map<int, int>
-#define htci unordered_map<char, int>
-#define pii pair<int, int>
+#define pii pair<int,int>
+#define pll pair<ll,ll>
 #define vpii vector<pii>
+#define vpll vector<pll>
+#define pb push_back
+#define all(x) (x).begin(), (x).end()
+
+const int INF = 1e9;
+const ll LINF = 1e18;
+const int MOD = 1e9 + 7;
+
+#ifdef DEBUG
+    #define dbg(x) cerr << #x << " = " << (x) << "\n"
+#else
+    #define dbg(x)
+#endif
 
 void solve() {
-    int n = 0;
+    int n;
     cin >> n;
-    // Your code here
+
+    // solution fn here
+    
 }
 
 int main() {
-    int n = 0;
-    cin >> n;
-
-    for (int i = 0; i < n; i++)
-        solve();
+    FAST_IO
+    
+    int t;
+    cin >> t;
+    while (t--) solve();
 
     return 0;
 }
