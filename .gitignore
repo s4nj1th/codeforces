@@ -6,3 +6,16 @@
 input.txt
 
 .cph/*
+
+.DS_Store
+.idea/
+*.iml
+*.log
+*.tmp
+*.swp
+*.swo
+*.bak
+*.orig
+*.rej
+
+*.bin
