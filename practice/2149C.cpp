@@ -13,11 +13,6 @@ using namespace std;
 #define vpll vector<pll>
 #define pb push_back
 #define all(x) (x).begin(), (x).end()
-#define htii unordered_map<int, int>
-#define htci unordered_map<char, int>
-#define htil unordered_map<int, ll>
-#define htli unordered_map<ll, int>
-#define htcl unordered_map<char, ll>
 
 const int INF = 1e9;
 const ll LINF = 1e18;
@@ -33,8 +28,26 @@ void solve() {
     int n;
     cin >> n;
 
-    // solution fn here
-    
+    int k;
+    cin >> k;
+
+    int mex = 0;
+    unordered_map<int, int> ht;
+
+    vi a(n);
+    for (int &x : a) {
+        cin >> x;
+        ht[x]++;
+    }
+
+    int cost = 0, rep = ht[k];
+    for (int i = 0; i < k; i++) {
+        if (!ht.count(i)) {
+            cost++;
+        }
+    }
+
+    cout << max(cost, rep) << endl;
 }
 
 int main() {

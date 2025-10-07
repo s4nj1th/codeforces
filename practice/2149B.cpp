@@ -13,11 +13,6 @@ using namespace std;
 #define vpll vector<pll>
 #define pb push_back
 #define all(x) (x).begin(), (x).end()
-#define htii unordered_map<int, int>
-#define htci unordered_map<char, int>
-#define htil unordered_map<int, ll>
-#define htli unordered_map<ll, int>
-#define htcl unordered_map<char, ll>
 
 const int INF = 1e9;
 const ll LINF = 1e18;
@@ -32,9 +27,19 @@ const int MOD = 1e9 + 7;
 void solve() {
     int n;
     cin >> n;
-
-    // solution fn here
     
+    int m = n;
+    vi arr(m);
+    while (m--) cin >> arr[m];
+
+    sort(all(arr));
+
+    int maxDiff = 0;
+    for (int i = 1; i < n; i+=2) {
+        maxDiff = max(maxDiff, abs(arr[i] - arr[i - 1]));
+    }
+
+    cout << maxDiff << "\n";
 }
 
 int main() {
