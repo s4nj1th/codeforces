@@ -30,18 +30,18 @@ const int MOD = 1e9 + 7;
 #endif
 
 void solve() {
-    int n;
-    cin >> n;
+    int n; cin >> n;
 
-    // solution fn here
+    // vi a(n);
+    // for (int i = 0; i < n; i++) cin >> a[i];
+
     
 }
 
 int main() {
     FAST_IO
     
-    int t;
-    cin >> t;
+    int t; cin >> t;
     while (t--) solve();
 
     return 0;
