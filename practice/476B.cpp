@@ -32,20 +32,39 @@ const int MOD = 1e9 + 7;
     #define dbg(x)
 #endif
 
-void solve() {
-    int n; cin >> n;
+void backtrack(int idx, int q, int d1, int d2, int &valid) {
+    if (idx == q) {
+        if (d1 == d2) valid++;
+        return;
+    }
 
-    // vi a(n);
-    // for (int i = 0; i < n; i++) cin >> a[i];
-
-    
+    backtrack(idx + 1, q, d1, d2 + 1, valid);
+    backtrack(idx + 1, q, d1, d2 - 1, valid);
 }
 
 int main() {
     FAST_IO
     
-    int t; cin >> t;
-    while (t--) solve();
+    string s1, s2;
+    cin >> s1 >> s2;
+
+    int d1 = 0, d2 = 0;
+    for (char c : s1) {
+        if (c == '+') d1++;
+        else d1--;
+    }
+
+    int q = 0;
+    for (char c : s2) {
+        if (c == '+') d2++;
+        else if (c == '-') d2--;
+        else q++;
+    }
+
+    int valid = 0;
+    backtrack(0, q, d1, d2, valid);
+    double tot = (1 << q);
+    cout.setf(ios::fixed); cout << setprecision(12) << (double)valid / tot << "\n";
 
     return 0;
 }

@@ -32,20 +32,27 @@ const int MOD = 1e9 + 7;
     #define dbg(x)
 #endif
 
-void solve() {
-    int n; cin >> n;
-
-    // vi a(n);
-    // for (int i = 0; i < n; i++) cin >> a[i];
-
-    
-}
-
 int main() {
     FAST_IO
     
-    int t; cin >> t;
-    while (t--) solve();
+    int p, q, l, r; cin >> p >> q >> l >> r;
+    vpii z(p), x(q);
+    for (int i = 0; i < p; ++i) cin >> z[i].first >> z[i].second;
+    for (int i = 0; i < q; ++i) cin >> x[i].first >> x[i].second;
 
+    int cnt = 0;
+    for (int t = l; t <= r; ++t) {
+        bool ok = false;
+        for (int i = 0; i < p && !ok; ++i) {
+            for (int j = 0; j < q; ++j) {
+                int a = z[i].first, b = z[i].second;
+                int c = x[j].first + t, d = x[j].second + t;
+                if (!(b < c || d < a)) { ok = true; break; }
+            }
+        }
+        if (ok) ++cnt;
+    }
+
+    cout << cnt << '\n';
     return 0;
 }

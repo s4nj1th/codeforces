@@ -32,20 +32,45 @@ const int MOD = 1e9 + 7;
     #define dbg(x)
 #endif
 
-void solve() {
-    int n; cin >> n;
-
-    // vi a(n);
-    // for (int i = 0; i < n; i++) cin >> a[i];
-
-    
-}
-
 int main() {
     FAST_IO
-    
-    int t; cin >> t;
-    while (t--) solve();
 
+    int n, m; cin >> n >> m;
+    
+    vvi adjMatrix(n, vi(n, 0));
+
+    for (int i = 0; i < m; i++) {
+        int u, v; cin >> u >> v;
+        adjMatrix[u-1][v-1] = 1;
+        adjMatrix[v-1][u-1] = 1;
+    }
+
+    bool flag = true;
+    int ans = 0;
+    while (true) {
+        vi deg(n, 0);
+        for (int i = 0; i < n; ++i) {
+            int d = 0;
+            for (int j = 0; j < n; ++j) d += adjMatrix[i][j];
+            deg[i] = d;
+        }
+
+        vi toRemove;
+        for (int i = 0; i < n; ++i) if (deg[i] == 1) toRemove.pb(i);
+
+        if (toRemove.empty()) break;
+
+        for (int v : toRemove) {
+            for (int j = 0; j < n; ++j) {
+                adjMatrix[v][j] = 0;
+                adjMatrix[j][v] = 0;
+            }
+        }
+
+        ans += 1;
+    }
+
+    cout << ans << "\n";
+    
     return 0;
 }
