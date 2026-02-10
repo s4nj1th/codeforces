@@ -5,7 +5,7 @@
 .vscode/
 input.txt
 
-.cph/*
+.cph/
 
 .DS_Store
 .idea/
